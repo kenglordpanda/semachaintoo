@@ -1,0 +1,107 @@
+/* Add your global styles here */
+
+/* Improve text input visibility */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  color: #333333 !important;
+  font-weight: 500 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #666666 !important;
+  opacity: 0.8 !important;
+}
+
+/* Improved input visibility */
+.dark-text,
+input.input,
+textarea.textarea {
+  color: #333333 !important;
+  font-weight: 500 !important;
+}
+
+.dark-text::placeholder,
+input.input::placeholder,
+textarea.textarea::placeholder {
+  color: #666666 !important;
+  opacity: 0.8 !important;
+}
+
+/* Make create buttons more visible */
+.create-button,
+button[type="submit"],
+button:has(span:contains("Create")) {
+  background-color: #4a69bd !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  opacity: 1 !important;
+}
+
+.create-button:hover,
+button[type="submit"]:hover,
+button:has(span:contains("Create")):hover {
+  background-color: #3a5795 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Create document button styling */
+.create-document-button {
+  background-color: #4a69bd !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  font-size: 1.1rem !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  margin-top: 1rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.create-document-button:hover {
+  background-color: #3a5795 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Generic create button styling for other pages */
+button[type="submit"],
+.button.is-primary {
+  background-color: #4a69bd !important;
+  color: white !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+button[type="submit"]:hover,
+.button.is-primary:hover,
+.create-button:hover {
+  background-color: #3a5795 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Improved input visibility */
+
+
+
+
+/* Create button styling */
+button[type="submit"],
+.button.is-primary,
+.create-button {
+  background-color: #4a69bd !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.2s ease !important;
+}
+
+

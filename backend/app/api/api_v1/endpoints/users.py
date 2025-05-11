@@ -6,8 +6,10 @@ from sqlalchemy.orm import Session
 from app.api import deps
 from app.core.security import get_password_hash
 from app.models.user import User
+from app.models.organization import Organization
 from app.schemas.user import User as UserSchema
 from app.schemas.user import UserCreate, UserUpdate
+from app.services.user_service import create_user
 
 router = APIRouter()
 
@@ -25,7 +27,7 @@ def read_users(
     return users
 
 @router.post("/", response_model=UserSchema)
-def create_user(
+def create_user_endpoint(
     *,
     db: Session = Depends(deps.get_db),
     user_in: UserCreate,
@@ -40,14 +42,9 @@ def create_user(
             status_code=400,
             detail="The user with this email already exists in the system.",
         )
-    user_in_data = jsonable_encoder(user_in)
-    user_in_data["hashed_password"] = get_password_hash(user_in.password)
-    del user_in_data["password"]
-    user = User(**user_in_data)
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return user
+    
+    # Use the service function that now requires an organization
+    return create_user(db=db, user_in=user_in)
 
 @router.put("/me", response_model=UserSchema)
 def update_user_me(
@@ -96,11 +93,6 @@ def register_user(
             status_code=400,
             detail="The user with this email already exists in the system.",
         )
-    user_in_data = jsonable_encoder(user_in)
-    user_in_data["hashed_password"] = get_password_hash(user_in.password)
-    del user_in_data["password"]
-    user = User(**user_in_data)
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return user 
+    
+    # Use the service function that now requires an organization
+    return create_user(db=db, user_in=user_in)

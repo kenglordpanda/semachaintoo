@@ -7,24 +7,47 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+      - NEXT_PUBLIC_BROWSER_API_URL=/api
+    restart: unless-stopped
+    volumes:
+      # Mount only specific files for development if needed
+      # Don't mount the whole directory as it can interfere with the build
+      - ./frontend/public:/app/public
     depends_on:
       - backend
-    environment:
-      - BACKEND_URL=http://backend:8000
 
   backend:
+    image: pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    depends_on:
-      - db
-      - milvus
+    volumes:
+      - ./backend:/app
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/app
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/semachain
+      - SECRET_KEY=your-secret-key-here
+      - CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://frontend:3000,http://localhost:8000,http://127.0.0.1:8000
+      - API_V1_PREFIX=/api/v1
       - MILVUS_HOST=milvus
       - MILVUS_PORT=19530
+      - MILVUS_COLLECTION_NAME=documents
+    depends_on:
+      db:
+        condition: service_healthy
+      milvus:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
 
   db:
     image: postgres:13
@@ -33,7 +56,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=app
+      - POSTGRES_DB=semachain
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -52,7 +75,7 @@ services:
       - ETCD_SNAPSHOT_COUNT=50000
     volumes:
       - ${DOCKER_VOLUME_DIRECTORY:-.}/volumes/etcd:/etcd
-    command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+    command: etcd -advertise-client-urls=http://etcd:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
 
   minio:
     container_name: milvus-minio

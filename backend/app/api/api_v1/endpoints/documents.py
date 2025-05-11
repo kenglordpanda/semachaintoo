@@ -33,24 +33,42 @@ def create_document(
     """
     Create new document.
     """
-    document = Document(**document_in.dict(exclude={"tags"}))
+    # Create the base document, storing tags directly in the JSON column
+    document_data = document_in.dict()
+    
+    # Validate that tags are provided and not empty
+    tags = document_data.get("tags")
+    if not tags:
+        raise HTTPException(
+            status_code=400,
+            detail="At least one tag is required for the document"
+        )
+    
+    # Create document instance with all fields including the tags JSON column
+    document = Document(
+        title=document_data["title"],
+        content=document_data["content"],
+        knowledge_base_id=document_data.get("knowledge_base_id"),
+        user_id=current_user.id,
+        tags=tags  # Store tags directly in the JSON column
+    )
+    
     db.add(document)
     db.commit()
     db.refresh(document)
 
-    # Handle tags
-    if document_in.tags:
-        for tag_name in document_in.tags:
-            tag = db.query(Tag).filter(Tag.name == tag_name).first()
-            if not tag:
-                tag = Tag(name=tag_name)
-                db.add(tag)
-                db.commit()
-                db.refresh(tag)
-            document_tag = DocumentTag(document_id=document.id, tag_id=tag.id)
-            db.add(document_tag)
-        db.commit()
-        db.refresh(document)
+    # Create Tag entities for advanced tag features
+    for tag_name in tags:
+        tag = db.query(Tag).filter(Tag.name == tag_name).first()
+        if not tag:
+            tag = Tag(name=tag_name)
+            db.add(tag)
+            db.commit()
+            db.refresh(tag)
+        document_tag = DocumentTag(document_id=document.id, tag_id=tag.id)
+        db.add(document_tag)
+    db.commit()
+    db.refresh(document)
 
     return document
 
@@ -70,16 +88,27 @@ def update_document(
         raise HTTPException(status_code=404, detail="Document not found")
     
     # Update document fields
-    for field, value in document_in.dict(exclude={"tags"}, exclude_unset=True).items():
-        setattr(document, field, value)
+    update_data = document_in.dict(exclude_unset=True)
     
-    # Handle tags
-    if document_in.tags is not None:
-        # Remove existing tags
+    # Handle tags specially
+    if "tags" in update_data:
+        # Validate that tags are provided and not empty
+        tags = update_data.get("tags")
+        if not tags:
+            raise HTTPException(
+                status_code=400,
+                detail="At least one tag is required for the document"
+            )
+        
+        # Update the JSON column directly
+        document.tags = tags
+        
+        # Update Tag entities
+        # Remove existing tag relations
         db.query(DocumentTag).filter(DocumentTag.document_id == document.id).delete()
         
-        # Add new tags
-        for tag_name in document_in.tags:
+        # Add new tag relations
+        for tag_name in tags:
             tag = db.query(Tag).filter(Tag.name == tag_name).first()
             if not tag:
                 tag = Tag(name=tag_name)
@@ -88,6 +117,13 @@ def update_document(
                 db.refresh(tag)
             document_tag = DocumentTag(document_id=document.id, tag_id=tag.id)
             db.add(document_tag)
+        
+        # Remove tags from update data as we've handled it separately
+        del update_data["tags"]
+    
+    # Update other fields
+    for field, value in update_data.items():
+        setattr(document, field, value)
     
     db.add(document)
     db.commit()
@@ -107,4 +143,9 @@ def read_document(
     document = db.query(Document).filter(Document.id == document_id).first()
     if not document:
         raise HTTPException(status_code=404, detail="Document not found")
-    return document 
+    
+    # Ensure tags is always a list
+    if document.tags is None:
+        document.tags = []
+        
+    return document

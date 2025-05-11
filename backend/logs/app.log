@@ -1,0 +1,2346 @@
+2025-05-11 03:46:26,002 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 03:46:56,129 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 03:47:26,256 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 03:47:56,423 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:01:00,429 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:01:15,436 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0002s)
+2025-05-11 04:01:15,784 - app - INFO - POST /api/v1/users/register/token 200 (0.3393s)
+2025-05-11 04:01:30,563 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 04:01:31,719 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0003s)
+2025-05-11 04:01:31,745 - app - INFO - GET /api/v1/users/me 200 (0.0091s)
+2025-05-11 04:01:31,866 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0003s)
+2025-05-11 04:01:31,912 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0106s)
+2025-05-11 04:01:31,932 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0088s)
+2025-05-11 04:01:50,351 - app - INFO - GET /api/v1/users/me 200 (0.0050s)
+2025-05-11 04:01:54,197 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0185s)
+2025-05-11 04:01:59,297 - app - INFO - GET /api/v1/users/me 200 (0.0040s)
+2025-05-11 04:02:00,001 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0002s)
+2025-05-11 04:02:00,096 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0089s)
+2025-05-11 04:02:00,215 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0085s)
+2025-05-11 04:02:00,697 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:02:12,325 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0155s)
+2025-05-11 04:02:12,333 - app - INFO - GET /api/v1/users/me 200 (0.0224s)
+2025-05-11 04:02:12,396 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0108s)
+2025-05-11 04:02:30,837 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:02:39,306 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0005s)
+2025-05-11 04:02:39,356 - app - ERROR - Unhandled exception: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 46, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+
+2025-05-11 04:02:43,674 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 04:02:43,697 - app - ERROR - Unhandled exception: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 46, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+
+2025-05-11 04:03:00,527 - app - INFO - GET /api/v1/users/me 200 (0.0060s)
+2025-05-11 04:03:00,978 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 04:03:09,552 - app - INFO - GET /api/v1/users/me 200 (0.0049s)
+2025-05-11 04:03:15,834 - app - INFO - POST /api/v1/login/access-token 200 (0.3022s)
+2025-05-11 04:03:15,852 - app - INFO - GET /api/v1/users/me 200 (0.0060s)
+2025-05-11 04:03:16,285 - app - INFO - GET /api/v1/users/me 200 (0.0085s)
+2025-05-11 04:03:16,288 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0121s)
+2025-05-11 04:03:16,301 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0068s)
+2025-05-11 04:03:19,578 - app - INFO - GET /api/v1/users/me 200 (0.0062s)
+2025-05-11 04:03:19,605 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0145s)
+2025-05-11 04:03:19,665 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0112s)
+2025-05-11 04:03:21,218 - app - INFO - GET /api/v1/users/me 200 (0.0105s)
+2025-05-11 04:03:21,225 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0175s)
+2025-05-11 04:03:21,256 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0139s)
+2025-05-11 04:03:31,129 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:03:36,583 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 04:03:36,599 - app - ERROR - Unhandled exception: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 46, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+
+2025-05-11 04:04:01,285 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 04:04:31,414 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 04:05:01,557 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:05:31,691 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:06:01,875 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 04:06:32,020 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:07:02,170 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:07:32,311 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:08:02,461 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:08:32,653 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 04:09:02,826 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 04:09:33,022 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 04:10:03,169 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:10:33,322 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:11:03,459 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:11:33,597 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 04:12:03,780 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 04:12:33,905 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:13:04,076 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:13:34,226 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:14:04,466 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 04:14:34,634 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 04:15:04,820 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 04:15:34,993 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:16:05,153 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:16:35,322 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 04:17:05,484 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 04:17:35,661 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 04:18:05,799 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:18:35,936 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:19:06,084 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:19:36,219 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 04:20:06,361 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 04:20:36,503 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 04:21:06,646 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:21:36,789 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:22:06,950 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:22:37,071 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 04:23:07,227 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 04:23:37,368 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:09:19,422 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 14:09:48,350 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 14:10:17,243 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:10:46,013 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 14:11:14,886 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 14:11:43,559 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:12:12,381 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:12:40,976 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:13:09,787 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:13:38,443 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 14:14:07,220 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:14:35,959 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:15:04,652 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:15:33,401 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:16:02,088 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:16:30,842 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 14:16:59,537 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 14:17:28,283 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:17:56,980 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:18:25,695 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:18:54,349 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 14:19:23,031 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:19:51,752 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 14:20:20,399 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:20:49,134 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 14:21:17,775 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 14:21:46,501 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:22:15,081 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:22:43,813 - app - INFO - GET /health 200 (0.0015s)
+2025-05-11 14:23:12,476 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:23:41,128 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:24:09,733 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 14:24:38,409 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 14:25:06,945 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:25:35,618 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:26:04,254 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 14:26:32,893 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:27:01,432 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:27:30,078 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:27:58,665 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:28:27,289 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:28:55,866 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:29:24,492 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 14:29:53,121 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 14:30:21,752 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 14:30:50,347 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:31:18,968 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:31:47,532 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:32:16,121 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 14:32:44,710 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:33:13,275 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 14:33:41,905 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 14:34:10,473 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:34:39,091 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 14:35:07,644 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:35:36,257 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:36:04,825 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:36:33,400 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 14:37:01,972 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 14:37:30,475 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:37:59,081 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 14:38:27,648 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 14:38:56,237 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 14:39:24,785 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:39:53,339 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:40:21,922 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:40:50,468 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:41:19,005 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:41:47,573 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 14:42:16,118 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 14:43:56,298 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 14:44:24,836 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 14:44:53,349 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 14:45:21,904 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 15:27:16,518 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 15:27:45,032 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 15:27:50,424 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0002s)
+2025-05-11 15:27:50,433 - app - INFO - GET /api/v1/users/me 403 (0.0032s)
+2025-05-11 15:28:13,553 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:28:42,045 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:29:10,535 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:29:39,046 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 15:30:07,562 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:34:10,690 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:34:39,186 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 15:35:07,672 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:35:36,153 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:36:04,669 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:36:33,167 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:37:01,724 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 15:37:30,207 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:37:58,715 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 15:41:21,559 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:41:50,095 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:42:18,649 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 15:42:42,188 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0005s)
+2025-05-11 15:42:42,648 - app - INFO - POST /api/v1/users/register/token 200 (0.4009s)
+2025-05-11 15:42:42,787 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0004s)
+2025-05-11 15:42:42,790 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0007s)
+2025-05-11 15:42:42,809 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0127s)
+2025-05-11 15:42:42,813 - app - INFO - GET /api/v1/users/me 200 (0.0148s)
+2025-05-11 15:42:44,881 - app - INFO - GET /api/v1/users/me 200 (0.0053s)
+2025-05-11 15:42:47,160 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 15:42:48,847 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0197s)
+2025-05-11 15:42:49,008 - app - INFO - GET /api/v1/users/me 200 (0.0067s)
+2025-05-11 15:42:49,016 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0002s)
+2025-05-11 15:42:49,041 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0112s)
+2025-05-11 15:42:50,047 - app - INFO - GET /api/v1/users/me 200 (0.0084s)
+2025-05-11 15:42:50,052 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0152s)
+2025-05-11 15:43:07,955 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 15:43:07,993 - root - ERROR - Unhandled exception: An unexpected error occurred: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 48, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+
+
+2025-05-11 15:43:15,141 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 15:43:15,160 - root - ERROR - Unhandled exception: An unexpected error occurred: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 48, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'list_type', 'loc': ('response', 'tags'), 'msg': 'Input should be a valid list', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/list_type'}
+  {'type': 'int_type', 'loc': ('response', 'knowledge_base_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+
+
+2025-05-11 15:43:15,665 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:43:44,185 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:44:12,701 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:44:41,212 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 15:45:09,692 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:45:38,202 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:46:06,735 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 15:46:35,242 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 15:47:03,746 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:47:32,281 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 15:48:00,807 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 15:51:16,177 - app - INFO - GET /api/v1/knowledge-bases/1 404 (0.0570s)
+2025-05-11 15:51:16,179 - app - INFO - GET /api/v1/users/me 404 (0.0584s)
+2025-05-11 15:51:22,799 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:51:47,734 - app - INFO - POST /api/v1/users/register/token 200 (0.3037s)
+2025-05-11 15:51:47,844 - app - INFO - GET /api/v1/users/me 200 (0.0115s)
+2025-05-11 15:51:47,845 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0156s)
+2025-05-11 15:51:51,284 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:51:51,671 - app - INFO - GET /api/v1/users/me 200 (0.0047s)
+2025-05-11 15:51:55,358 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0194s)
+2025-05-11 15:51:55,417 - app - INFO - GET /api/v1/users/me 200 (0.0086s)
+2025-05-11 15:51:55,427 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0153s)
+2025-05-11 15:51:56,860 - app - INFO - GET /api/v1/users/me 200 (0.0084s)
+2025-05-11 15:51:56,863 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0114s)
+2025-05-11 15:52:19,882 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:52:21,164 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0004s)
+2025-05-11 15:52:21,203 - app - INFO - POST /api/v1/documents/ 200 (0.0333s)
+2025-05-11 15:52:21,264 - app - INFO - GET /api/v1/users/me 200 (0.0136s)
+2025-05-11 15:52:21,266 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0174s)
+2025-05-11 15:52:28,044 - app - INFO - GET /api/v1/users/me 200 (0.0113s)
+2025-05-11 15:52:28,049 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0176s)
+2025-05-11 15:52:40,121 - app - INFO - POST /api/v1/documents/ 200 (0.0195s)
+2025-05-11 15:52:40,205 - app - INFO - GET /api/v1/users/me 200 (0.0143s)
+2025-05-11 15:52:40,208 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0205s)
+2025-05-11 15:52:48,289 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 15:53:16,792 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:53:28,466 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0002s)
+2025-05-11 15:53:28,469 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0004s)
+2025-05-11 15:53:28,556 - app - INFO - GET /api/v1/users/me 200 (0.0096s)
+2025-05-11 15:53:28,558 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0158s)
+2025-05-11 15:53:45,320 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:54:13,833 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:54:42,294 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:55:10,790 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:55:39,303 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 15:56:07,805 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 15:56:36,330 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 15:57:04,844 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:57:33,375 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 15:58:01,886 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:58:30,415 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 15:58:58,924 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:59:27,451 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 15:59:55,972 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 16:00:24,501 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 16:00:53,004 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 16:01:21,536 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 16:01:50,067 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 16:02:18,580 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:02:47,067 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:03:15,584 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:03:44,102 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:04:12,612 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:11:09,023 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:11:37,578 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 16:11:39,354 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0023s)
+2025-05-11 16:11:39,355 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0029s)
+2025-05-11 16:11:39,454 - app - INFO - GET /api/v1/knowledge-bases/1 404 (0.0600s)
+2025-05-11 16:11:39,463 - app - INFO - GET /api/v1/users/me 404 (0.0672s)
+2025-05-11 16:12:06,088 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:12:07,438 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 16:12:07,780 - app - INFO - POST /api/v1/users/register/token 200 (0.3209s)
+2025-05-11 16:12:07,914 - app - INFO - GET /api/v1/users/me 200 (0.0064s)
+2025-05-11 16:12:07,915 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0013s)
+2025-05-11 16:12:07,928 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0069s)
+2025-05-11 16:12:13,558 - app - INFO - GET /api/v1/users/me 200 (0.0051s)
+2025-05-11 16:12:19,431 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0249s)
+2025-05-11 16:12:19,754 - app - INFO - GET /api/v1/users/me 200 (0.0095s)
+2025-05-11 16:12:19,764 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0171s)
+2025-05-11 16:12:21,422 - app - INFO - GET /api/v1/users/me 200 (0.0090s)
+2025-05-11 16:12:21,428 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0142s)
+2025-05-11 16:12:34,584 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:12:35,200 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 16:12:35,239 - app - INFO - POST /api/v1/documents/ 200 (0.0334s)
+2025-05-11 16:12:35,294 - app - INFO - GET /api/v1/users/me 200 (0.0090s)
+2025-05-11 16:12:35,299 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0154s)
+2025-05-11 16:13:03,088 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:13:31,632 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:14:00,129 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:14:28,674 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:28:22,432 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:30:02,641 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:30:31,116 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 16:30:59,637 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:31:28,124 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:31:56,641 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 16:32:25,169 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 16:32:53,701 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:33:22,256 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 16:33:31,823 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 16:33:32,215 - app - INFO - POST /api/v1/users/register/token 200 (0.3831s)
+2025-05-11 16:33:32,355 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0003s)
+2025-05-11 16:33:32,357 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0004s)
+2025-05-11 16:33:32,387 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0119s)
+2025-05-11 16:33:32,392 - app - INFO - GET /api/v1/users/me 200 (0.0155s)
+2025-05-11 16:33:50,801 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 16:33:53,412 - app - INFO - GET /api/v1/users/me 200 (0.0046s)
+2025-05-11 16:33:56,139 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0223s)
+2025-05-11 16:33:55,396 - app - INFO - GET /api/v1/users/me 200 (0.0044s)
+2025-05-11 16:33:55,399 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0002s)
+2025-05-11 16:33:55,415 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0094s)
+2025-05-11 16:34:00,455 - app - INFO - GET /api/v1/users/me 200 (0.0113s)
+2025-05-11 16:34:00,461 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0195s)
+2025-05-11 16:34:13,167 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 16:34:13,214 - app - INFO - POST /api/v1/documents/ 200 (0.0394s)
+2025-05-11 16:34:13,289 - app - INFO - GET /api/v1/users/me 200 (0.0094s)
+2025-05-11 16:34:13,292 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0141s)
+2025-05-11 16:34:19,310 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:34:36,770 - app - INFO - GET /api/v1/users/me 200 (0.0101s)
+2025-05-11 16:34:36,776 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0176s)
+2025-05-11 16:34:45,797 - app - INFO - POST /api/v1/documents/ 200 (0.0227s)
+2025-05-11 16:34:46,093 - app - INFO - GET /api/v1/users/me 200 (0.0103s)
+2025-05-11 16:34:46,095 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0175s)
+2025-05-11 16:34:47,821 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:35:16,332 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:35:44,884 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:36:13,376 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:36:43,856 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:37:12,418 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 16:37:40,981 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 16:38:09,504 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 16:38:38,050 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 16:39:06,592 - app - INFO - GET /health 200 (0.0017s)
+2025-05-11 16:39:35,154 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 16:40:03,711 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 16:40:32,268 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 16:41:00,819 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 16:41:29,382 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 16:41:57,926 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 16:42:26,461 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 16:42:55,008 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 16:43:23,575 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 16:43:52,133 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 16:44:20,692 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 16:44:49,265 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 16:45:17,825 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 16:45:46,410 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 16:46:14,927 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:46:43,468 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 16:47:20,601 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 16:47:43,946 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 16:58:15,904 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 16:58:44,453 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 16:59:12,993 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 16:59:41,535 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:00:10,077 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 17:00:38,649 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 17:01:07,196 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 17:01:35,748 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 17:02:04,309 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 17:02:32,853 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:03:01,408 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:03:29,977 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:03:58,514 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 17:04:27,075 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 17:04:55,660 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 17:05:24,201 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:05:52,736 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:05:58,989 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0002s)
+2025-05-11 17:05:59,021 - app - INFO - GET /api/v1/users/me 403 (0.0047s)
+2025-05-11 17:06:12,339 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 17:06:12,677 - app - INFO - POST /api/v1/users/register/token 200 (0.3319s)
+2025-05-11 17:06:12,827 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0004s)
+2025-05-11 17:06:12,831 - app - INFO - GET /api/v1/users/me 200 (0.0095s)
+2025-05-11 17:06:12,844 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0081s)
+2025-05-11 17:06:17,064 - app - INFO - GET /api/v1/users/me 200 (0.0058s)
+2025-05-11 17:06:21,136 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0245s)
+2025-05-11 17:06:21,223 - app - INFO - GET /api/v1/users/me 200 (0.0051s)
+2025-05-11 17:06:21,232 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0002s)
+2025-05-11 17:06:21,251 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:06:21,264 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0097s)
+2025-05-11 17:06:22,381 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0179s)
+2025-05-11 17:06:22,394 - app - INFO - GET /api/v1/users/me 200 (0.0272s)
+2025-05-11 17:06:27,022 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 17:06:27,044 - app - INFO - POST /api/v1/documents/ 200 (0.0169s)
+2025-05-11 17:06:27,115 - app - INFO - GET /api/v1/users/me 200 (0.0077s)
+2025-05-11 17:06:27,124 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0175s)
+2025-05-11 17:06:49,810 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 17:07:18,333 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 17:07:46,915 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:08:15,462 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:08:44,038 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 17:09:12,561 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:09:41,097 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 17:10:09,665 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 17:10:38,216 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 17:11:06,747 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 17:11:35,269 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 17:12:03,816 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:12:32,364 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:13:00,926 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:13:29,500 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:13:58,022 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 17:14:26,573 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:14:55,096 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 17:15:23,653 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 17:15:52,193 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:16:20,729 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 17:16:49,312 - app - INFO - GET /health 200 (0.0027s)
+2025-05-11 17:17:17,874 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:17:46,432 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:18:14,995 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 17:21:24,645 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0004s)
+2025-05-11 17:21:25,001 - app - INFO - POST /api/v1/users/register/token 200 (0.3452s)
+2025-05-11 17:21:25,286 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0002s)
+2025-05-11 17:21:25,293 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0005s)
+2025-05-11 17:21:25,465 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0200s)
+2025-05-11 17:21:25,472 - app - INFO - GET /api/v1/users/me 200 (0.0248s)
+2025-05-11 17:21:27,271 - app - INFO - GET /api/v1/users/me 200 (0.0051s)
+2025-05-11 17:21:27,411 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:21:32,186 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0329s)
+2025-05-11 17:21:32,274 - app - INFO - GET /api/v1/users/me 200 (0.0048s)
+2025-05-11 17:21:32,276 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0005s)
+2025-05-11 17:21:32,309 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0136s)
+2025-05-11 17:21:33,884 - app - INFO - GET /api/v1/users/me 200 (0.0079s)
+2025-05-11 17:21:33,885 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0124s)
+2025-05-11 17:21:42,825 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 17:21:42,848 - app - INFO - POST /api/v1/documents/ 200 (0.0171s)
+2025-05-11 17:21:42,948 - root - ERROR - Unhandled exception: An unexpected error occurred: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 48, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:21:42,957 - app - INFO - GET /api/v1/users/me 200 (0.0168s)
+2025-05-11 17:21:55,943 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:22:24,484 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 17:22:53,046 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:23:21,565 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:23:50,102 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:24:18,631 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 17:24:47,162 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:25:15,691 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:25:46,844 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:26:15,373 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:26:43,940 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:29:01,300 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 17:29:29,851 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:29:58,438 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:30:01,602 - app - INFO - GET /api/v1/users/me 404 (0.0448s)
+2025-05-11 17:30:16,970 - app - INFO - POST /api/v1/users/register/token 200 (0.2596s)
+2025-05-11 17:30:17,085 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0098s)
+2025-05-11 17:30:17,091 - app - INFO - GET /api/v1/users/me 200 (0.0150s)
+2025-05-11 17:30:19,594 - app - INFO - GET /api/v1/users/me 200 (0.0048s)
+2025-05-11 17:30:22,897 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0266s)
+2025-05-11 17:30:22,977 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0004s)
+2025-05-11 17:30:22,980 - app - INFO - GET /api/v1/users/me 200 (0.0071s)
+2025-05-11 17:30:22,995 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0122s)
+2025-05-11 17:30:25,333 - app - INFO - GET /api/v1/users/me 200 (0.0084s)
+2025-05-11 17:30:25,339 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0151s)
+2025-05-11 17:30:26,989 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:30:34,954 - app - INFO - POST /api/v1/documents/ 200 (0.0338s)
+2025-05-11 17:30:35,021 - app - INFO - GET /api/v1/users/me 200 (0.0112s)
+2025-05-11 17:30:35,032 - root - ERROR - Unhandled exception: An unexpected error occurred: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 48, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:30:37,218 - app - INFO - GET /api/v1/users/me 200 (0.0115s)
+2025-05-11 17:30:37,228 - root - ERROR - Unhandled exception: An unexpected error occurred: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 48, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:30:41,451 - app - INFO - GET /api/v1/users/me 200 (0.0059s)
+2025-05-11 17:30:41,453 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0005s)
+2025-05-11 17:30:41,475 - root - ERROR - Unhandled exception: An unexpected error occurred: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 48, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:30:45,887 - app - INFO - GET /api/v1/users/me 200 (0.0055s)
+2025-05-11 17:30:46,270 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0004s)
+2025-05-11 17:30:46,289 - root - ERROR - Unhandled exception: An unexpected error occurred: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+  File "/app/app/main.py", line 48, in log_requests
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:30:55,517 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:31:24,055 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:31:52,631 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 17:32:22,237 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:32:50,763 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:33:19,313 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:33:57,274 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:36:00,937 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:36:29,478 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:36:51,691 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0003s)
+2025-05-11 17:36:51,763 - app - INFO - GET /api/v1/users/me 404 (0.0463s)
+2025-05-11 17:36:58,045 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 17:37:05,761 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0002s)
+2025-05-11 17:37:06,058 - app - INFO - POST /api/v1/users/register/token 200 (0.2813s)
+2025-05-11 17:37:06,242 - app - INFO - GET /api/v1/users/me 200 (0.0050s)
+2025-05-11 17:37:06,244 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0005s)
+2025-05-11 17:37:06,256 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0066s)
+2025-05-11 17:37:08,448 - app - INFO - GET /api/v1/users/me 200 (0.0053s)
+2025-05-11 17:37:12,120 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0233s)
+2025-05-11 17:37:12,210 - app - INFO - GET /api/v1/users/me 200 (0.0061s)
+2025-05-11 17:37:12,213 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0002s)
+2025-05-11 17:37:12,247 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0116s)
+2025-05-11 17:37:13,268 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0149s)
+2025-05-11 17:37:13,271 - app - INFO - GET /api/v1/users/me 200 (0.0151s)
+2025-05-11 17:37:18,659 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 17:37:18,680 - app - INFO - POST /api/v1/documents/ 200 (0.0143s)
+2025-05-11 17:37:18,759 - app - INFO - GET /api/v1/users/me 200 (0.0068s)
+2025-05-11 17:37:18,769 - app - ERROR - GET /api/v1/knowledge-bases/1 ERROR (0.0152s): Error processing request: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:37:26,584 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:37:55,156 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:38:23,705 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:53:40,008 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 17:54:08,621 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 17:54:37,177 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 17:54:39,943 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0012s)
+2025-05-11 17:54:39,945 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0019s)
+2025-05-11 17:54:40,005 - app - INFO - GET /api/v1/knowledge-bases/1 404 (0.0478s)
+2025-05-11 17:54:40,009 - app - INFO - GET /api/v1/users/me 404 (0.0512s)
+2025-05-11 17:54:59,230 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 17:54:59,583 - app - INFO - POST /api/v1/users/register/token 200 (0.3390s)
+2025-05-11 17:54:59,742 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0011s)
+2025-05-11 17:54:59,745 - app - INFO - GET /api/v1/users/me 200 (0.0098s)
+2025-05-11 17:54:59,779 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0127s)
+2025-05-11 17:55:01,479 - app - INFO - GET /api/v1/users/me 200 (0.0061s)
+2025-05-11 17:55:04,475 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0261s)
+2025-05-11 17:55:04,548 - app - INFO - GET /api/v1/users/me 200 (0.0086s)
+2025-05-11 17:55:04,556 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0176s)
+2025-05-11 17:55:05,731 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 17:55:09,672 - app - INFO - GET /api/v1/users/me 200 (0.0122s)
+2025-05-11 17:55:09,675 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0173s)
+2025-05-11 17:55:18,499 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 17:55:18,538 - app - INFO - POST /api/v1/documents/ 200 (0.0336s)
+2025-05-11 17:55:18,658 - app - INFO - GET /api/v1/users/me 200 (0.0097s)
+2025-05-11 17:55:18,672 - app - ERROR - GET /api/v1/knowledge-bases/1 ERROR (0.0179s): Error processing request: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:55:34,313 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 17:55:41,338 - app - INFO - GET /api/v1/users/me 200 (0.0068s)
+2025-05-11 17:55:41,339 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0003s)
+2025-05-11 17:55:41,363 - app - ERROR - GET /api/v1/knowledge-bases/1 ERROR (0.0136s): Error processing request: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 1 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 17:56:02,899 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:56:31,505 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 17:57:00,062 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:57:28,670 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 17:57:57,253 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 17:58:25,857 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 17:58:54,477 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 17:59:23,078 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:07:58,646 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:08:26,616 - app - INFO - GET /health 200 (0.0015s)
+2025-05-11 18:08:54,453 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 18:09:23,040 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:11:41,056 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0004s)
+2025-05-11 18:11:41,124 - app - INFO - GET /api/v1/users/me 404 (0.0532s)
+2025-05-11 18:11:51,995 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 18:11:52,262 - app - INFO - POST /api/v1/users/register/token 200 (0.2522s)
+2025-05-11 18:11:52,434 - app - INFO - GET /api/v1/users/me 200 (0.0062s)
+2025-05-11 18:11:52,435 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0005s)
+2025-05-11 18:11:52,452 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0092s)
+2025-05-11 18:11:53,072 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:11:54,602 - app - INFO - GET /api/v1/users/me 200 (0.0044s)
+2025-05-11 18:11:57,500 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0261s)
+2025-05-11 18:11:57,601 - app - INFO - GET /api/v1/users/me 200 (0.0054s)
+2025-05-11 18:11:57,633 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0007s)
+2025-05-11 18:11:57,662 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0194s)
+2025-05-11 18:11:58,804 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0143s)
+2025-05-11 18:11:58,807 - app - INFO - GET /api/v1/users/me 200 (0.0141s)
+2025-05-11 18:12:03,074 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 18:12:03,095 - app - INFO - POST /api/v1/documents/ 200 (0.0159s)
+2025-05-11 18:12:03,301 - app - INFO - GET /api/v1/users/me 200 (0.0094s)
+2025-05-11 18:12:03,314 - app - ERROR - GET /api/v1/knowledge-bases/1 ERROR (0.0175s): Error processing request: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 18:12:21,656 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 18:12:50,262 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 18:13:18,844 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:13:47,462 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 18:14:16,100 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 18:14:44,728 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:15:13,349 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 18:15:41,994 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 18:16:10,582 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:16:39,193 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 18:17:07,780 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:17:36,382 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 18:18:08,892 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:18:37,538 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 18:19:06,140 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 18:33:46,461 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:34:15,074 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:34:43,699 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:35:12,316 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:35:40,906 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 18:36:09,532 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:36:25,737 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0006s)
+2025-05-11 18:36:25,795 - app - INFO - GET /api/v1/users/me 404 (0.0458s)
+2025-05-11 18:36:38,166 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:37:06,783 - app - INFO - GET /health 200 (0.0015s)
+2025-05-11 18:37:16,473 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 18:37:16,820 - app - INFO - POST /api/v1/users/register/token 200 (0.3302s)
+2025-05-11 18:37:17,002 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0003s)
+2025-05-11 18:37:17,006 - app - INFO - GET /api/v1/users/me 200 (0.0076s)
+2025-05-11 18:37:17,015 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0068s)
+2025-05-11 18:37:18,649 - app - INFO - GET /api/v1/users/me 200 (0.0054s)
+2025-05-11 18:37:23,656 - app - ERROR - POST /api/v1/knowledge-bases/ ERROR (0.0258s): Error processing request: 2 validation errors:
+  {'type': 'int_type', 'loc': ('response', 'organization_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+  {'type': 'model_attributes_type', 'loc': ('response', 'organization'), 'msg': 'Input should be a valid dictionary or object to extract fields from', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/model_attributes_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'int_type', 'loc': ('response', 'organization_id'), 'msg': 'Input should be a valid integer', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/int_type'}
+  {'type': 'model_attributes_type', 'loc': ('response', 'organization'), 'msg': 'Input should be a valid dictionary or object to extract fields from', 'input': None, 'url': 'https://errors.pydantic.dev/2.5/v/model_attributes_type'}
+
+
+2025-05-11 18:37:35,374 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:38:04,000 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 18:38:32,624 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 18:39:01,240 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:39:29,859 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 18:39:58,448 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 18:40:27,043 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 18:40:55,666 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 18:41:24,260 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:44:52,438 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:44:52,965 - app - INFO - GET /api/v1/users/me 404 (0.0366s)
+2025-05-11 18:45:05,042 - app - INFO - POST /api/v1/users/register/token 200 (0.2683s)
+2025-05-11 18:45:05,177 - app - INFO - GET /api/v1/users/me 200 (0.0061s)
+2025-05-11 18:45:05,199 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0006s)
+2025-05-11 18:45:05,217 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0091s)
+2025-05-11 18:45:07,552 - app - INFO - GET /api/v1/users/me 200 (0.0050s)
+2025-05-11 18:45:11,253 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0256s)
+2025-05-11 18:45:11,413 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0012s)
+2025-05-11 18:45:11,417 - app - INFO - GET /api/v1/users/me 200 (0.0124s)
+2025-05-11 18:45:11,461 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0175s)
+2025-05-11 18:45:12,522 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0121s)
+2025-05-11 18:45:12,528 - app - INFO - GET /api/v1/users/me 200 (0.0119s)
+2025-05-11 18:45:17,770 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0004s)
+2025-05-11 18:45:17,790 - app - INFO - POST /api/v1/documents/ 200 (0.0151s)
+2025-05-11 18:45:17,877 - app - INFO - GET /api/v1/users/me 200 (0.0084s)
+2025-05-11 18:45:17,885 - app - ERROR - GET /api/v1/knowledge-bases/1 ERROR (0.0146s): Error processing request: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 18:45:21,086 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:45:49,672 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:46:18,303 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 18:54:26,259 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 18:54:54,921 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 18:55:23,595 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 18:55:52,252 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 18:56:17,025 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0004s)
+2025-05-11 18:56:17,070 - app - INFO - GET /api/v1/users/me 404 (0.0378s)
+2025-05-11 18:56:20,853 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 18:56:30,809 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 18:56:31,144 - app - INFO - POST /api/v1/users/register/token 200 (0.3180s)
+2025-05-11 18:56:31,327 - app - INFO - GET /api/v1/users/me 200 (0.0056s)
+2025-05-11 18:56:31,329 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0006s)
+2025-05-11 18:56:31,342 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0076s)
+2025-05-11 18:56:32,582 - app - INFO - GET /api/v1/users/me 200 (0.0044s)
+2025-05-11 18:56:36,670 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0238s)
+2025-05-11 18:56:36,769 - app - INFO - GET /api/v1/users/me 200 (0.0069s)
+2025-05-11 18:56:36,770 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0017s)
+2025-05-11 18:56:36,798 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0115s)
+2025-05-11 18:56:39,734 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0146s)
+2025-05-11 18:56:39,742 - app - INFO - GET /api/v1/users/me 200 (0.0208s)
+2025-05-11 18:56:40,862 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0160s)
+2025-05-11 18:56:40,870 - app - INFO - GET /api/v1/users/me 200 (0.0122s)
+2025-05-11 18:56:42,312 - app - INFO - GET /api/v1/users/me 200 (0.0117s)
+2025-05-11 18:56:42,319 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0193s)
+2025-05-11 18:56:49,459 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:56:52,867 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 18:56:52,918 - app - INFO - POST /api/v1/documents/ 200 (0.0452s)
+2025-05-11 18:56:53,288 - app - ERROR - GET /api/v1/knowledge-bases/1 ERROR (0.0210s): Error processing request: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 18:56:53,305 - app - INFO - GET /api/v1/users/me 200 (0.0086s)
+2025-05-11 18:57:18,091 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 18:57:37,629 - app - INFO - GET /api/v1/users/me 200 (0.0094s)
+2025-05-11 18:57:37,642 - app - ERROR - GET /api/v1/knowledge-bases/ ERROR (0.0214s): Error processing request: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 18:57:44,037 - app - INFO - GET /api/v1/users/me 200 (0.0049s)
+2025-05-11 18:57:46,682 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:57:47,351 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0002s)
+2025-05-11 18:57:47,375 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0186s)
+2025-05-11 18:57:47,770 - app - INFO - GET /api/v1/users/me 200 (0.0048s)
+2025-05-11 18:57:47,772 - app - INFO - OPTIONS /api/v1/knowledge-bases/2 200 (0.0006s)
+2025-05-11 18:57:47,789 - app - INFO - GET /api/v1/knowledge-bases/2 200 (0.0091s)
+2025-05-11 18:57:50,921 - app - ERROR - GET /api/v1/knowledge-bases/ ERROR (0.0236s): Error processing request: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 93, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+  File "/opt/conda/lib/python3.10/site-packages/anyio/streams/memory.py", line 118, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app/main.py", line 45, in dispatch
+    response = await call_next(request)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 91, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/cors.py", line 146, in simple_response
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/opt/conda/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/opt/conda/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 292, in app
+    content = await serialize_response(
+  File "/opt/conda/lib/python3.10/site-packages/fastapi/routing.py", line 155, in serialize_response
+    raise ResponseValidationError(
+fastapi.exceptions.ResponseValidationError: 2 validation errors:
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+  {'type': 'string_type', 'loc': ('response', 0, 'documents', 0, 'user_id'), 'msg': 'Input should be a valid string', 'input': 1, 'url': 'https://errors.pydantic.dev/2.5/v/string_type'}
+
+
+2025-05-11 18:57:50,929 - app - INFO - GET /api/v1/users/me 200 (0.0133s)
+2025-05-11 18:58:15,296 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:58:43,915 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 18:59:12,563 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 18:59:41,215 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:01:50,242 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 19:02:18,889 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:02:47,539 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 19:03:16,169 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:03:44,795 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:04:13,436 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:04:42,085 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 19:05:10,719 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:05:39,331 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:06:07,932 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:06:36,574 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 19:07:05,231 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 19:07:33,875 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 19:08:02,483 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:08:31,153 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:08:59,768 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:09:28,415 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:09:57,063 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:10:25,698 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:10:54,346 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:11:22,997 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 19:11:51,648 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 19:12:20,294 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:12:43,492 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0004s)
+2025-05-11 19:12:43,904 - app - INFO - POST /api/v1/users/register/token 200 (0.4070s)
+2025-05-11 19:12:44,032 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0003s)
+2025-05-11 19:12:44,034 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0003s)
+2025-05-11 19:12:44,069 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0108s)
+2025-05-11 19:12:44,073 - app - INFO - GET /api/v1/users/me 200 (0.0136s)
+2025-05-11 19:12:45,436 - app - INFO - GET /api/v1/users/me 200 (0.0052s)
+2025-05-11 19:12:48,898 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:12:48,914 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0321s)
+2025-05-11 19:12:48,977 - app - INFO - GET /api/v1/users/me 200 (0.0054s)
+2025-05-11 19:12:48,978 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0010s)
+2025-05-11 19:12:48,995 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0108s)
+2025-05-11 19:12:53,085 - app - INFO - GET /api/v1/users/me 200 (0.0093s)
+2025-05-11 19:12:53,090 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0150s)
+2025-05-11 19:13:13,196 - app - INFO - GET /api/v1/users/me 200 (0.0085s)
+2025-05-11 19:13:13,200 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0139s)
+2025-05-11 19:13:17,518 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:13:46,138 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:13:55,576 - app - INFO - GET /api/v1/users/me 200 (0.0081s)
+2025-05-11 19:13:55,583 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0151s)
+2025-05-11 19:14:03,679 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 19:14:03,722 - app - INFO - POST /api/v1/documents/ 200 (0.0377s)
+2025-05-11 19:14:03,785 - app - INFO - GET /api/v1/users/me 200 (0.0086s)
+2025-05-11 19:14:03,791 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0183s)
+2025-05-11 19:14:08,133 - app - INFO - GET /api/v1/users/me 200 (0.0093s)
+2025-05-11 19:14:08,138 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0143s)
+2025-05-11 19:14:14,749 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:14:43,388 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:14:51,601 - app - INFO - GET /api/v1/users/me 200 (0.0080s)
+2025-05-11 19:14:51,609 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0161s)
+2025-05-11 19:15:12,007 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:15:40,660 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:16:09,328 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:16:37,965 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:17:06,584 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 19:17:35,206 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:18:03,815 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:18:32,435 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:19:01,062 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:19:29,702 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:19:58,343 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:20:26,965 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 19:27:33,062 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:28:01,701 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:28:30,372 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 19:28:59,052 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:29:27,671 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:29:56,309 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 19:30:05,971 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 19:30:06,288 - app - INFO - POST /api/v1/users/register/token 200 (0.3105s)
+2025-05-11 19:30:24,933 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:30:53,595 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 19:31:22,253 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:31:50,915 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:32:19,602 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:32:48,195 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 19:33:16,852 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 19:33:23,656 - app - INFO - POST /api/v1/users/register/token 400 (0.0055s)
+2025-05-11 19:33:35,705 - app - INFO - POST /api/v1/login/access-token 200 (0.2968s)
+2025-05-11 19:33:45,489 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:33:49,718 - app - INFO - POST /api/v1/login/access-token 200 (0.3076s)
+2025-05-11 19:34:08,389 - app - INFO - POST /api/v1/login/access-token 200 (0.2364s)
+2025-05-11 19:34:14,115 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:34:14,254 - app - INFO - POST /api/v1/login/access-token 200 (0.2154s)
+2025-05-11 19:37:31,127 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 19:37:59,774 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:38:28,410 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:38:57,086 - app - INFO - GET /health 200 (0.0013s)
+2025-05-11 19:39:22,456 - app - INFO - POST /api/v1/login/access-token 400 (0.0381s)
+2025-05-11 19:39:25,719 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:39:34,153 - app - INFO - POST /api/v1/users/register/token 200 (0.2833s)
+2025-05-11 19:39:54,379 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:40:23,026 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:40:51,655 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:41:20,289 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:41:48,953 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:42:17,626 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 19:42:46,285 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 19:43:14,967 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 19:46:51,881 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0008s)
+2025-05-11 19:46:52,291 - app - INFO - POST /api/v1/users/register/token 200 (0.3717s)
+2025-05-11 19:46:52,304 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:46:52,473 - app - INFO - GET /api/v1/users/me 200 (0.0073s)
+2025-05-11 19:46:58,438 - app - INFO - GET /api/v1/users/me 200 (0.0047s)
+2025-05-11 19:46:59,612 - app - INFO - GET /api/v1/users/me 200 (0.0047s)
+2025-05-11 19:47:01,496 - app - INFO - POST /api/v1/knowledge-bases 307 (0.0005s)
+2025-05-11 19:47:20,969 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:47:21,380 - app - INFO - GET /api/v1/users/me 200 (0.0056s)
+2025-05-11 19:47:24,089 - app - INFO - GET /api/v1/users/me 200 (0.0071s)
+2025-05-11 19:47:49,578 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:48:04,192 - app - INFO - GET /api/v1/users/me 200 (0.0059s)
+2025-05-11 19:48:18,232 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:48:46,877 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:49:15,541 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 19:49:44,208 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:53:14,906 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 19:53:43,592 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:54:12,236 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 19:54:40,877 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:55:09,507 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:55:38,160 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:56:06,788 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:56:35,445 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:57:04,157 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 19:57:32,865 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 19:58:01,543 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 19:58:30,214 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:58:44,950 - app - INFO - GET /api/v1/users/me 403 (0.0042s)
+2025-05-11 19:58:58,846 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 19:59:01,305 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0004s)
+2025-05-11 19:59:01,600 - app - INFO - POST /api/v1/users/register/token 200 (0.2857s)
+2025-05-11 19:59:01,694 - app - INFO - GET /api/v1/users/me 200 (0.0070s)
+2025-05-11 19:59:13,055 - app - INFO - GET /api/v1/users/me 200 (0.0041s)
+2025-05-11 19:59:17,147 - app - INFO - POST /api/v1/knowledge-bases 307 (0.0006s)
+2025-05-11 19:59:27,481 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 19:59:28,145 - app - INFO - POST /api/v1/knowledge-bases 307 (0.0004s)
+2025-05-11 19:59:41,277 - app - INFO - GET /api/v1/knowledge-bases/ 401 (0.0024s)
+2025-05-11 19:59:41,338 - app - INFO - GET /favicon.ico 404 (0.0007s)
+2025-05-11 19:59:46,671 - app - INFO - OPTIONS /api/v1/knowledge-bases/2 200 (0.0002s)
+2025-05-11 19:59:46,674 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0007s)
+2025-05-11 19:59:46,699 - app - INFO - GET /api/v1/users/me 200 (0.0099s)
+2025-05-11 19:59:46,711 - app - INFO - GET /api/v1/knowledge-bases/2 404 (0.0242s)
+2025-05-11 19:59:47,310 - app - INFO - GET /api/v1/users/me 200 (0.0061s)
+2025-05-11 19:59:47,742 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0014s)
+2025-05-11 19:59:47,746 - app - INFO - GET /api/v1/users/me 200 (0.0115s)
+2025-05-11 19:59:47,759 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0108s)
+2025-05-11 19:59:50,585 - app - INFO - GET /api/v1/users/me 200 (0.0088s)
+2025-05-11 19:59:51,864 - app - INFO - GET /api/v1/users/me 200 (0.0050s)
+2025-05-11 19:59:56,157 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 19:59:58,954 - app - INFO - POST /api/v1/login/access-token 400 (0.2165s)
+2025-05-11 20:00:02,589 - app - INFO - POST /api/v1/login/access-token 200 (0.2553s)
+2025-05-11 20:00:02,620 - app - INFO - GET /api/v1/users/me 200 (0.0065s)
+2025-05-11 20:00:02,790 - app - INFO - GET /api/v1/users/me 200 (0.0069s)
+2025-05-11 20:00:24,800 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 20:00:53,436 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 20:01:22,103 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 20:01:50,759 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 20:02:19,383 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 20:02:48,083 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 20:03:16,708 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 20:03:45,376 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 20:04:14,058 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 20:04:42,759 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 20:05:11,452 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 20:05:40,105 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 20:06:08,769 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 20:06:37,419 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 20:07:06,073 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 20:07:34,853 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:00:16,131 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:00:19,115 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 21:00:19,437 - app - INFO - POST /api/v1/users/register/token 200 (0.3140s)
+2025-05-11 21:00:19,568 - app - INFO - GET /api/v1/users/me 200 (0.0058s)
+2025-05-11 21:00:27,971 - app - INFO - GET /api/v1/users/me 200 (0.0059s)
+2025-05-11 21:00:36,227 - app - INFO - GET /api/v1/users/me 200 (0.0067s)
+2025-05-11 21:00:44,809 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:00:49,266 - app - INFO - GET /api/v1/users/me 200 (0.0079s)
+2025-05-11 21:00:54,958 - app - INFO - GET /api/v1/users/me 200 (0.0056s)
+2025-05-11 21:01:09,875 - app - INFO - GET /api/v1/users/me 200 (0.0070s)
+2025-05-11 21:01:13,491 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:01:42,180 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:02:10,863 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:02:39,546 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:03:08,209 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:03:36,897 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:04:05,634 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 21:04:34,346 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:05:03,091 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 21:13:06,321 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 21:13:10,284 - app - INFO - GET /api/v1/users/me 404 (0.0452s)
+2025-05-11 21:13:22,943 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0004s)
+2025-05-11 21:13:23,216 - app - INFO - POST /api/v1/users/register/token 200 (0.2537s)
+2025-05-11 21:13:23,353 - app - INFO - GET /api/v1/users/me 200 (0.0066s)
+2025-05-11 21:13:23,369 - app - INFO - GET /api/v1/knowledge-bases 307 (0.0006s)
+2025-05-11 21:13:26,262 - app - INFO - GET /api/v1/knowledge-bases 307 (0.0006s)
+2025-05-11 21:13:27,889 - app - INFO - GET /api/v1/users/me 200 (0.0064s)
+2025-05-11 21:13:35,008 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:14:03,772 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 21:14:32,462 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:15:01,175 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 21:15:29,875 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:15:58,591 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 21:16:27,309 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:16:56,021 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:20:29,453 - app - INFO - GET /health 200 (0.0020s)
+2025-05-11 21:20:58,179 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:21:26,920 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:21:55,667 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 21:22:23,570 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0005s)
+2025-05-11 21:22:23,620 - app - INFO - GET /api/v1/users/me 404 (0.0418s)
+2025-05-11 21:22:24,355 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:22:36,630 - app - INFO - POST /api/v1/users/register/token 200 (0.2746s)
+2025-05-11 21:22:36,737 - app - INFO - GET /api/v1/users/me 200 (0.0058s)
+2025-05-11 21:22:36,739 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0006s)
+2025-05-11 21:22:36,752 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0079s)
+2025-05-11 21:22:36,763 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0053s)
+2025-05-11 21:22:38,569 - app - INFO - GET /api/v1/users/me 200 (0.0057s)
+2025-05-11 21:22:41,507 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0251s)
+2025-05-11 21:22:41,592 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0005s)
+2025-05-11 21:22:41,595 - app - INFO - GET /api/v1/users/me 200 (0.0072s)
+2025-05-11 21:22:41,609 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0116s)
+2025-05-11 21:22:44,180 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0125s)
+2025-05-11 21:22:44,185 - app - INFO - GET /api/v1/users/me 200 (0.0171s)
+2025-05-11 21:22:50,998 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 21:22:51,041 - app - INFO - POST /api/v1/documents/ 200 (0.0358s)
+2025-05-11 21:22:51,121 - app - INFO - GET /api/v1/users/me 200 (0.0101s)
+2025-05-11 21:22:51,132 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0223s)
+2025-05-11 21:22:53,053 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 21:22:55,040 - app - INFO - GET /api/v1/users/me 200 (0.0076s)
+2025-05-11 21:22:55,046 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0138s)
+2025-05-11 21:23:21,756 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:23:50,486 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:24:19,173 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:24:47,906 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:25:16,594 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:25:45,321 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:26:14,025 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:26:42,721 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:30:29,281 - app - INFO - GET /api/v1/users/me 404 (0.0606s)
+2025-05-11 21:30:34,048 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:30:47,738 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 21:30:48,034 - app - INFO - POST /api/v1/users/register/token 200 (0.2798s)
+2025-05-11 21:30:48,128 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0105s)
+2025-05-11 21:30:48,132 - app - INFO - GET /api/v1/users/me 200 (0.0131s)
+2025-05-11 21:30:48,149 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0054s)
+2025-05-11 21:30:49,235 - app - INFO - GET /api/v1/users/me 200 (0.0044s)
+2025-05-11 21:30:51,959 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0276s)
+2025-05-11 21:30:52,038 - app - INFO - GET /api/v1/users/me 200 (0.0084s)
+2025-05-11 21:30:52,046 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0153s)
+2025-05-11 21:30:52,923 - app - INFO - GET /api/v1/users/me 200 (0.0075s)
+2025-05-11 21:30:52,928 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0127s)
+2025-05-11 21:31:02,720 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 21:31:15,465 - app - INFO - POST /api/v1/documents/ 200 (0.0424s)
+2025-05-11 21:31:15,531 - app - INFO - GET /api/v1/users/me 200 (0.0076s)
+2025-05-11 21:31:15,534 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0125s)
+2025-05-11 21:31:17,109 - app - INFO - GET /api/v1/users/me 200 (0.0073s)
+2025-05-11 21:31:17,115 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0143s)
+2025-05-11 21:31:31,486 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:31:56,265 - app - INFO - POST /api/v1/documents/ 200 (0.0284s)
+2025-05-11 21:31:56,338 - app - INFO - GET /api/v1/users/me 200 (0.0084s)
+2025-05-11 21:31:56,342 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0134s)
+2025-05-11 21:31:58,211 - app - INFO - GET /api/v1/documents/2 401 (0.0017s)
+2025-05-11 21:32:00,129 - app - INFO - GET /api/v1/users/me 200 (0.0060s)
+2025-05-11 21:32:00,138 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0157s)
+2025-05-11 21:32:00,166 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 21:32:00,417 - app - INFO - GET /api/v1/documents/2 401 (0.0016s)
+2025-05-11 21:32:01,570 - app - INFO - GET /api/v1/users/me 200 (0.0091s)
+2025-05-11 21:32:01,577 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0169s)
+2025-05-11 21:32:16,939 - app - INFO - GET /api/v1/documents/1 401 (0.0018s)
+2025-05-11 21:32:26,244 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0003s)
+2025-05-11 21:32:26,247 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0104s)
+2025-05-11 21:32:26,258 - app - INFO - GET /api/v1/users/me 200 (0.0051s)
+2025-05-11 21:32:27,788 - app - INFO - GET /api/v1/documents/2 401 (0.0015s)
+2025-05-11 21:32:28,874 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:32:57,629 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:33:26,324 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:33:55,052 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:34:23,767 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:34:52,484 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 21:35:21,202 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:35:49,942 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:36:18,801 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 21:36:47,427 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:37:16,153 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:37:44,835 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:38:13,577 - app - INFO - GET /health 200 (0.0015s)
+2025-05-11 21:38:42,293 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:39:10,977 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:39:39,700 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:40:08,443 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:40:37,162 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:41:05,873 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:41:34,593 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:42:03,288 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:42:32,028 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 21:43:00,724 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:43:28,813 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:43:57,488 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:44:26,194 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:44:54,168 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 21:45:22,931 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 21:45:51,638 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:46:20,377 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:46:49,090 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:47:17,830 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:47:46,588 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 21:48:15,294 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:48:44,021 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:49:12,732 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:49:41,475 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 21:50:10,197 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 21:50:38,917 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 21:51:07,621 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 21:51:36,329 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 21:52:05,051 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 21:52:33,755 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 21:53:02,471 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 21:53:31,249 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 22:10:18,536 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0005s)
+2025-05-11 22:10:18,870 - app - INFO - POST /api/v1/users/register/token 200 (0.3192s)
+2025-05-11 22:10:19,008 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0002s)
+2025-05-11 22:10:19,024 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0079s)
+2025-05-11 22:10:27,869 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:10:30,981 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0259s)
+2025-05-11 22:10:31,063 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0005s)
+2025-05-11 22:10:31,081 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0129s)
+2025-05-11 22:10:32,159 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0123s)
+2025-05-11 22:10:56,598 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:11:01,779 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 22:11:01,816 - app - INFO - POST /api/v1/documents/ 200 (0.0312s)
+2025-05-11 22:11:01,888 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0096s)
+2025-05-11 22:11:03,715 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0110s)
+2025-05-11 22:11:25,325 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:13:12,134 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:13:40,856 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:14:09,615 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:14:38,345 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:15:07,096 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:15:35,823 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:16:04,591 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 22:16:33,334 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 22:17:02,094 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 22:17:30,846 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:17:59,621 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:18:28,345 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:18:57,126 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 22:19:25,879 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:19:54,683 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 22:20:23,440 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 22:20:52,236 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 22:21:20,953 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:21:49,720 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:22:18,455 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 22:22:47,218 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 22:23:15,997 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 22:23:44,765 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 22:24:13,561 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 22:24:42,295 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:25:11,088 - app - INFO - GET /health 200 (0.0015s)
+2025-05-11 22:25:39,799 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:26:08,551 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:26:37,332 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 22:27:06,101 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:27:34,845 - app - INFO - GET /health 200 (0.0009s)
+2025-05-11 22:28:03,622 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:28:32,411 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:29:01,153 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:29:29,924 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:29:58,676 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:30:27,422 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:30:56,188 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:31:24,935 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:31:53,697 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:32:22,439 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:32:27,960 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0004s)
+2025-05-11 22:32:27,968 - app - INFO - POST /api/v1/users/me 405 (0.0005s)
+2025-05-11 22:32:43,286 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 22:32:43,622 - app - INFO - POST /api/v1/users/register/token 200 (0.3206s)
+2025-05-11 22:32:43,712 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0002s)
+2025-05-11 22:32:43,727 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0086s)
+2025-05-11 22:32:47,393 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0291s)
+2025-05-11 22:32:47,487 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0002s)
+2025-05-11 22:32:47,504 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0126s)
+2025-05-11 22:32:48,484 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0102s)
+2025-05-11 22:32:51,884 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:33:02,551 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 22:33:02,593 - app - INFO - POST /api/v1/documents/ 200 (0.0343s)
+2025-05-11 22:33:02,667 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0139s)
+2025-05-11 22:33:04,365 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0096s)
+2025-05-11 22:33:20,019 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:33:48,739 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:34:17,482 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:34:46,239 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:35:15,012 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:35:43,755 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:36:12,518 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:36:41,260 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:37:10,019 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:37:38,786 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:38:07,560 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:38:36,279 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:39:05,040 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:39:33,794 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:40:02,556 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:40:31,312 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:41:00,064 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:41:28,821 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:41:57,612 - app - INFO - GET /health 200 (0.0022s)
+2025-05-11 22:42:26,373 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:42:55,108 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:43:23,918 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:43:52,663 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:44:21,423 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:44:50,177 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:45:18,950 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:45:47,705 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:46:16,461 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:46:45,236 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:47:13,987 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 22:47:42,761 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:48:11,563 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:48:40,332 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:49:09,105 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:49:37,854 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:50:06,586 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:50:35,359 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:51:04,147 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:51:32,907 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:52:01,674 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:52:30,441 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 22:52:59,231 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:53:27,988 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:53:56,791 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:54:25,551 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:54:54,317 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:55:23,067 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:55:51,815 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:56:20,593 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:56:49,332 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 22:57:18,107 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 22:57:46,862 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 22:58:15,642 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:58:44,398 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 22:59:13,150 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 22:59:41,909 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:00:10,658 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:07:31,329 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 23:07:35,677 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0003s)
+2025-05-11 23:07:35,686 - app - INFO - POST /api/v1/users/me 405 (0.0005s)
+2025-05-11 23:07:52,361 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0002s)
+2025-05-11 23:07:52,688 - app - INFO - POST /api/v1/users/register/token 200 (0.3088s)
+2025-05-11 23:07:52,834 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0002s)
+2025-05-11 23:07:52,870 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0096s)
+2025-05-11 23:08:00,108 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:08:00,463 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0267s)
+2025-05-11 23:08:00,591 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0005s)
+2025-05-11 23:08:00,612 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0157s)
+2025-05-11 23:08:01,645 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0095s)
+2025-05-11 23:08:21,711 - app - INFO - OPTIONS /api/v1/documents/similar 200 (0.0003s)
+2025-05-11 23:08:21,736 - app - INFO - POST /api/v1/documents/similar 422 (0.0092s)
+2025-05-11 23:08:22,901 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0002s)
+2025-05-11 23:08:22,939 - app - INFO - POST /api/v1/documents/ 200 (0.0331s)
+2025-05-11 23:08:23,254 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0136s)
+2025-05-11 23:08:26,657 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0104s)
+2025-05-11 23:08:28,873 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 23:08:35,423 - app - INFO - POST /api/v1/documents/similar 422 (0.0084s)
+2025-05-11 23:08:44,623 - app - INFO - POST /api/v1/documents/ 200 (0.0193s)
+2025-05-11 23:08:44,825 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0127s)
+2025-05-11 23:08:57,657 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:09:26,419 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:09:55,224 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 23:10:24,004 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:10:57,615 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 23:11:26,444 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 23:11:55,254 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:12:24,014 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:12:52,819 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 23:14:54,610 - app - INFO - POST /api/v1/users/me 405 (0.0009s)
+2025-05-11 23:15:07,685 - app - INFO - POST /api/v1/users/register/token 200 (0.3156s)
+2025-05-11 23:15:07,813 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0082s)
+2025-05-11 23:15:10,474 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:15:12,813 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0300s)
+2025-05-11 23:15:12,901 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0110s)
+2025-05-11 23:15:13,722 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0098s)
+2025-05-11 23:15:31,278 - app - INFO - POST /api/v1/documents/similar 500 (0.0112s)
+2025-05-11 23:15:39,256 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 23:16:08,044 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:16:36,804 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 23:17:05,623 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 23:17:34,382 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 23:18:03,209 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 23:18:32,008 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 23:20:35,348 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:20:39,461 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0008s)
+2025-05-11 23:20:39,462 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0015s)
+2025-05-11 23:20:39,472 - app - INFO - POST /api/v1/users/me 405 (0.0018s)
+2025-05-11 23:20:39,517 - app - INFO - GET /api/v1/knowledge-bases/1 404 (0.0470s)
+2025-05-11 23:20:54,018 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0002s)
+2025-05-11 23:20:54,372 - app - INFO - POST /api/v1/users/register/token 200 (0.3413s)
+2025-05-11 23:20:54,497 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0003s)
+2025-05-11 23:20:54,513 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0082s)
+2025-05-11 23:20:59,843 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0259s)
+2025-05-11 23:21:00,005 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0127s)
+2025-05-11 23:21:01,013 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0144s)
+2025-05-11 23:21:03,550 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:21:11,117 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0004s)
+2025-05-11 23:21:11,160 - app - INFO - POST /api/v1/documents/ 200 (0.0346s)
+2025-05-11 23:21:11,301 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0101s)
+2025-05-11 23:21:13,343 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0124s)
+2025-05-11 23:21:32,301 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:21:37,411 - app - INFO - OPTIONS /api/v1/documents/similar 200 (0.0006s)
+2025-05-11 23:21:37,433 - app - INFO - POST /api/v1/documents/similar 500 (0.0093s)
+2025-05-11 23:22:01,075 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:22:29,182 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:22:57,932 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:23:26,756 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:23:55,601 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 23:24:24,398 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 23:24:53,155 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 23:25:21,958 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:27:01,786 - app - INFO - POST /api/v1/users/me 405 (0.0009s)
+2025-05-11 23:27:13,689 - app - INFO - GET /health 200 (0.0007s)
+2025-05-11 23:27:14,707 - app - INFO - POST /api/v1/users/register/token 200 (0.3252s)
+2025-05-11 23:27:14,807 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0097s)
+2025-05-11 23:27:23,837 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0306s)
+2025-05-11 23:27:24,091 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0005s)
+2025-05-11 23:27:24,108 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0116s)
+2025-05-11 23:27:25,450 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0122s)
+2025-05-11 23:27:40,959 - app.utils.text_processing - INFO - Saved TF-IDF vectorizer to /app/models/tfidf_vectorizer.pkl
+2025-05-11 23:27:40,976 - app - INFO - POST /api/v1/documents/similar 200 (2.6300s)
+2025-05-11 23:27:41,028 - app - INFO - POST /api/v1/documents/ 200 (0.0348s)
+2025-05-11 23:27:41,121 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0087s)
+2025-05-11 23:27:42,430 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0130s)
+2025-05-11 23:27:42,474 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:28:05,512 - app - INFO - POST /api/v1/documents/similar 200 (0.0163s)
+2025-05-11 23:28:11,274 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:28:40,045 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:29:08,815 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:29:14,565 - app - INFO - POST /api/v1/documents/ 200 (0.0187s)
+2025-05-11 23:29:14,803 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0133s)
+2025-05-11 23:29:16,262 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0113s)
+2025-05-11 23:29:37,628 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 23:30:06,440 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:30:31,853 - app - INFO - POST /api/v1/documents/similar 200 (0.0224s)
+2025-05-11 23:30:35,215 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:30:37,807 - app - INFO - POST /api/v1/documents/ 200 (0.0264s)
+2025-05-11 23:30:37,923 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0099s)
+2025-05-11 23:30:41,444 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0109s)
+2025-05-11 23:30:53,586 - app - INFO - POST /api/v1/documents/ 200 (0.0182s)
+2025-05-11 23:30:53,670 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0129s)
+2025-05-11 23:30:55,642 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0095s)
+2025-05-11 23:31:03,999 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:31:08,547 - app - INFO - POST /api/v1/documents/similar 200 (0.0174s)
+2025-05-11 23:31:32,798 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:31:46,483 - app - INFO - OPTIONS /api/v1/documents/similar 200 (0.0004s)
+2025-05-11 23:31:46,511 - app - INFO - POST /api/v1/documents/similar 200 (0.0176s)
+2025-05-11 23:32:01,589 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:32:30,363 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:32:59,139 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:33:27,933 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:33:57,801 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:34:26,591 - app - INFO - GET /health 200 (0.0011s)
+2025-05-11 23:34:55,367 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:35:24,167 - app - INFO - GET /health 200 (0.0010s)
+2025-05-11 23:35:52,980 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:36:21,769 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:36:50,587 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 23:39:15,449 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:39:17,657 - app - INFO - OPTIONS /api/v1/users/me 200 (0.0008s)
+2025-05-11 23:39:17,658 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0015s)
+2025-05-11 23:39:17,668 - app - INFO - POST /api/v1/users/me 405 (0.0014s)
+2025-05-11 23:39:17,741 - app - INFO - GET /api/v1/knowledge-bases/1 404 (0.0729s)
+2025-05-11 23:39:38,079 - app - INFO - OPTIONS /api/v1/users/register/token 200 (0.0003s)
+2025-05-11 23:39:38,483 - app - INFO - POST /api/v1/users/register/token 200 (0.3918s)
+2025-05-11 23:39:38,610 - app - INFO - OPTIONS /api/v1/knowledge-bases/ 200 (0.0003s)
+2025-05-11 23:39:38,657 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0087s)
+2025-05-11 23:39:44,240 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:40:06,615 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.0242s)
+2025-05-11 23:40:06,698 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0115s)
+2025-05-11 23:40:07,675 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0091s)
+2025-05-11 23:40:13,021 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:40:29,998 - app.utils.text_processing - INFO - Saved TF-IDF vectorizer to /app/models/tfidf_vectorizer.pkl
+2025-05-11 23:40:30,006 - app - INFO - POST /api/v1/documents/similar 200 (0.0299s)
+2025-05-11 23:40:33,324 - app - INFO - OPTIONS /api/v1/documents/ 200 (0.0003s)
+2025-05-11 23:40:33,369 - app - INFO - POST /api/v1/documents/ 200 (0.0398s)
+2025-05-11 23:40:33,502 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0097s)
+2025-05-11 23:40:34,794 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0130s)
+2025-05-11 23:40:41,433 - app - INFO - POST /api/v1/documents/similar 200 (0.0306s)
+2025-05-11 23:40:41,789 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:40:43,233 - app - INFO - POST /api/v1/documents/similar 200 (0.0265s)
+2025-05-11 23:41:10,576 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:41:39,337 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:42:08,172 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:42:36,341 - app - INFO - GET /health 200 (0.0004s)
+2025-05-11 23:43:05,135 - app - INFO - GET /health 200 (0.0014s)
+2025-05-11 23:43:33,272 - app - INFO - GET /health 200 (0.0012s)
+2025-05-11 23:44:02,051 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:44:34,674 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:45:11,321 - app - INFO - GET /health 200 (0.0019s)
+2025-05-11 23:45:37,244 - app - INFO - GET /health 200 (0.0008s)
+2025-05-11 23:46:09,105 - app - INFO - GET /health 200 (0.0016s)
+2025-05-11 23:46:37,932 - app - INFO - GET /health 200 (0.0006s)
+2025-05-11 23:48:34,614 - app - INFO - POST /api/v1/users/register/token 200 (0.3901s)
+2025-05-11 23:48:34,766 - app - INFO - GET /api/v1/knowledge-bases/ 200 (0.0108s)
+2025-05-11 23:48:39,042 - app - INFO - POST /api/v1/knowledge-bases/ 200 (0.2281s)
+2025-05-11 23:48:39,237 - app - INFO - OPTIONS /api/v1/knowledge-bases/1 200 (0.0003s)
+2025-05-11 23:48:39,250 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0097s)
+2025-05-11 23:48:40,577 - app - INFO - GET /health 200 (0.0005s)
+2025-05-11 23:48:40,612 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0098s)
+2025-05-11 23:48:43,605 - app - INFO - OPTIONS /api/v1/documents/similar 200 (0.0002s)
+2025-05-11 23:48:43,616 - app - INFO - POST /api/v1/documents/similar 200 (0.0068s)
+2025-05-11 23:48:49,544 - app - INFO - POST /api/v1/documents/ 200 (0.0421s)
+2025-05-11 23:48:49,687 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0147s)
+2025-05-11 23:48:49,939 - app - INFO - GET /api/v1/knowledge-bases/1 200 (0.0094s)
+2025-05-11 23:48:58,897 - app - INFO - POST /api/v1/documents/similar 200 (0.0938s)
+2025-05-11 23:49:09,407 - app - INFO - GET /health 200 (0.0015s)
+2025-05-11 23:49:19,579 - app - INFO - POST /api/v1/documents/similar 200 (0.0651s)
+2025-05-11 23:49:22,153 - app - INFO - POST /api/v1/documents/similar 200 (0.0752s)
+2025-05-11 23:49:29,089 - app - INFO - POST /api/v1/documents/similar 200 (0.0602s)

@@ -20,7 +20,7 @@ class Document(Base):
     status = Column(String(50), default="draft")  # draft, review, published, archived
     
     # Metadata
-    tags = Column(JSON)  # List of tags
+    tags = Column(JSON, default=list)  # List of tag strings - for simple string tag storage
     category = Column(String(100))  # Document category
     priority = Column(Integer, default=0)  # For sorting/importance
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -50,6 +50,8 @@ class Document(Base):
     # Relationships
     user = relationship("User", back_populates="documents")
     comments_list = relationship("Comment", back_populates="document", cascade="all, delete-orphan")
+    # Note: We're keeping the tags_list relationship for future advanced tag features
+    # but the primary tag storage will be the JSON tags column
     tags_list = relationship("Tag", secondary="document_tags", back_populates="documents")
     knowledge_base = relationship("KnowledgeBase", back_populates="documents")
     parent = relationship("Document", remote_side=[id], backref="child_documents")
@@ -89,4 +91,22 @@ class DocumentTag(Base):
     __tablename__ = "document_tags"
 
     document_id = Column(Integer, ForeignKey("documents.id"), primary_key=True)
-    tag_id = Column(Integer, ForeignKey("tags.id"), primary_key=True) 
+    tag_id = Column(Integer, ForeignKey("tags.id"), primary_key=True)
+
+# Add Comment model
+class Comment(Base):
+    __tablename__ = "comments"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    content = Column(Text, nullable=False)
+    document_id = Column(Integer, ForeignKey("documents.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
+    parent_id = Column(Integer, ForeignKey("comments.id"), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # Relationships
+    document = relationship("Document", back_populates="comments_list")
+    user = relationship("User")
+    # Self-referential relationship for nested comments
+    parent = relationship("Comment", remote_side=[id], backref="replies")

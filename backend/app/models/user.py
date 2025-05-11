@@ -16,6 +16,7 @@ class User(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
     # Relationships
-    organization_id = Column(Integer, ForeignKey("organizations.id"))
+    organization_id = Column(Integer, ForeignKey("organizations.id"), nullable=False)
     organization = relationship("Organization", back_populates="users")
-    knowledge_bases = relationship("KnowledgeBase", back_populates="owner") 
+    knowledge_bases = relationship("KnowledgeBase", back_populates="owner")
+    documents = relationship("Document", back_populates="user")

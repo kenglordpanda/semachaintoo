@@ -6,13 +6,18 @@ from sqlalchemy.orm import Session
 from sqlalchemy import desc
 import re
 from slugify import slugify
+from fastapi import HTTPException
 
 class DocumentService:
     def __init__(self):
         self.vector_service = VectorService()
 
-    def create_document(self, db: Session, content: str, user_id: int, title: str, **kwargs) -> Document:
+    def create_document(self, db: Session, content: str, user_id: int, title: str, knowledge_base_id: Optional[int] = None, tags: List[str] = None, **kwargs) -> Document:
         """Create a new document with enhanced organization features"""
+        # Validate tags are provided and not empty
+        if not tags:
+            raise ValueError("At least one tag is required for the document")
+            
         # Generate slug from title
         slug = slugify(title)
         base_slug = slug
@@ -37,20 +42,28 @@ class DocumentService:
             estimated_read_time=estimated_read_time,
             created_at=datetime.utcnow(),
             updated_at=datetime.utcnow(),
+            knowledge_base_id=knowledge_base_id,  # Associate with knowledge base
+            tags=tags,  # Store tags in the JSON column
             **kwargs
         )
         
-        # Add to vector store for search
+        # First add to database to get document ID
+        db.add(document)
+        db.commit()
+        db.refresh(document)
+        
+        # Now add to vector store with the actual document ID
         vector_id = self.vector_service.add_document(document.id, content)
         document.vector_id = vector_id
         
+        # Update the document with the vector ID
         db.add(document)
         db.commit()
         db.refresh(document)
         
         return document
 
-    def update_document(self, db: Session, document_id: int, content: str, **kwargs) -> Document:
+    def update_document(self, db: Session, document_id: int, content: str, tags: List[str] = None, **kwargs) -> Document:
         """Update a document with version control"""
         document = db.query(Document).filter(Document.id == document_id).first()
         if not document:
@@ -62,6 +75,13 @@ class DocumentService:
         document.estimated_read_time = max(1, document.word_count // 200)
         document.updated_at = datetime.utcnow()
         document.version += 1
+        
+        # Update tags if provided
+        if tags is not None:
+            # Validate tags are not empty
+            if not tags:
+                raise ValueError("At least one tag is required for the document")
+            document.tags = tags
         
         # Update other properties if provided
         for key, value in kwargs.items():
@@ -131,25 +151,46 @@ class DocumentService:
 
     def get_recent_documents(self, db: Session, user_id: int, limit: int = 10) -> List[Document]:
         """Get recently viewed documents"""
-        return db.query(Document)\
+        documents = db.query(Document)\
             .filter(Document.user_id == user_id)\
             .order_by(desc(Document.last_viewed_at))\
             .limit(limit)\
             .all()
+            
+        # Ensure all returned documents have tags as a list
+        for doc in documents:
+            if doc.tags is None:
+                doc.tags = []
+                
+        return documents
 
     def get_documents_by_category(self, db: Session, category: str) -> List[Document]:
         """Get documents by category"""
-        return db.query(Document)\
+        documents = db.query(Document)\
             .filter(Document.category == category)\
             .order_by(desc(Document.created_at))\
             .all()
+            
+        # Ensure all returned documents have tags as a list
+        for doc in documents:
+            if doc.tags is None:
+                doc.tags = []
+                
+        return documents
 
     def get_document_templates(self, db: Session) -> List[Document]:
         """Get document templates"""
-        return db.query(Document)\
+        documents = db.query(Document)\
             .filter(Document.is_template == True)\
             .order_by(Document.title)\
             .all()
+            
+        # Ensure all returned documents have tags as a list
+        for doc in documents:
+            if doc.tags is None:
+                doc.tags = []
+                
+        return documents
 
     def search_documents(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
         """Search documents using vector search"""
@@ -168,4 +209,32 @@ class DocumentService:
         db.commit()
         db.refresh(document)
         
-        return document 
+        return document
+
+    def assign_to_knowledge_base(self, db: Session, document_id: int, knowledge_base_id: int) -> Document:
+        """Assign a document to a knowledge base"""
+        document = db.query(Document).filter(Document.id == document_id).first()
+        if not document:
+            raise ValueError("Document not found")
+            
+        document.knowledge_base_id = knowledge_base_id
+        document.updated_at = datetime.utcnow()
+        
+        db.commit()
+        db.refresh(document)
+        
+        return document
+        
+    def get_documents_by_knowledge_base(self, db: Session, knowledge_base_id: int) -> List[Document]:
+        """Get all documents belonging to a specific knowledge base"""
+        documents = db.query(Document)\
+            .filter(Document.knowledge_base_id == knowledge_base_id)\
+            .order_by(desc(Document.created_at))\
+            .all()
+            
+        # Ensure all returned documents have tags as a list
+        for doc in documents:
+            if doc.tags is None:
+                doc.tags = []
+                
+        return documents

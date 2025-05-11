@@ -32,6 +32,9 @@ RUN npm install
 # Build Next.js frontend
 RUN npm run build
 
+# Don't try to start Nginx if it's not installed
+RUN sed -i 's/nginx: unrecognized service/Nginx not installed in this container. Skipping./g' /app/start-services.sh || true
+
 # Set execute permissions for start script
 WORKDIR /app
 RUN chmod +x /app/start.sh
